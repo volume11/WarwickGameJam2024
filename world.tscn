@@ -1,13 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://brx4hdtjnarh8"]
 
 [ext_resource type="PackedScene" uid="uid://cyg45ga4md8v5" path="res://player.tscn" id="1_rn4ml"]
-[ext_resource type="PackedScene" uid="uid://0j0v85bo1nu2" path="res://goblin.tscn" id="2_ml3ct"]
+[ext_resource type="PackedScene" uid="uid://0j0v85bo1nu2" path="res://slime.tscn" id="2_ml3ct"]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_rn4ml")]
 position = Vector2(190, 211)
-speed = 300
+motion_mode = 1
 
-[node name="Goblin" parent="." instance=ExtResource("2_ml3ct")]
-position = Vector2(426, 162)
+[node name="Slime" parent="." instance=ExtResource("2_ml3ct")]
+position = Vector2(339, 207)
+motion_mode = 1
+
+[node name="Slime2" parent="." instance=ExtResource("2_ml3ct")]
+position = Vector2(263, 299)
+
+[node name="Slime3" parent="." instance=ExtResource("2_ml3ct")]
+position = Vector2(323, 265)
+
+[node name="Slime4" parent="." instance=ExtResource("2_ml3ct")]
+position = Vector2(315, 307)

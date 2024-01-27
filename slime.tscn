@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://0j0v85bo1nu2"]
+
+[ext_resource type="Script" path="res://slime.gd" id="1_j1b6s"]
+[ext_resource type="Texture2D" uid="uid://bntokssye4rf5" path="res://assets/sprites/slime/sprite_0.png" id="2_btpnl"]
+[ext_resource type="Texture2D" uid="uid://bwnalw6cevwwo" path="res://assets/sprites/slime/sprite_1.png" id="3_je43s"]
+[ext_resource type="Texture2D" uid="uid://cnmdrwgmiqbf2" path="res://assets/sprites/slime/sprite_2.png" id="4_4hgil"]
+[ext_resource type="Texture2D" uid="uid://c4ej36ogp6mao" path="res://assets/sprites/slime/sprite_3.png" id="5_3s2l2"]
+[ext_resource type="Texture2D" uid="uid://tg0mjot6000s" path="res://assets/sprites/slime/sprite_4.png" id="6_jptiw"]
+[ext_resource type="Texture2D" uid="uid://cb1v82hf0f68w" path="res://assets/sprites/slime/sprite_5.png" id="7_xkrf8"]
+[ext_resource type="Texture2D" uid="uid://bm5ndq4dexw6l" path="res://assets/sprites/slime/sprite_6.png" id="8_qe25f"]
+[ext_resource type="Texture2D" uid="uid://86lsaxt13tmh" path="res://assets/sprites/slime/sprite_7.png" id="9_ifiba"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i04ti"]
+radius = 7.07107
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjp2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_btpnl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_btpnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_je43s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4hgil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3s2l2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jptiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xkrf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qe25f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ifiba")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
+}]
+
+[node name="Slime" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_j1b6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_i04ti")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_xjp2l")
+animation = &"idle"
