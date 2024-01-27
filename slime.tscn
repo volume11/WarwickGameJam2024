@@ -82,3 +82,9 @@ shape = SubResource("CircleShape2D_i04ti")
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_xjp2l")
 animation = &"running"
+
+[node name="KnockbackTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]
