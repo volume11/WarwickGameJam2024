@@ -2,22 +2,26 @@ extends CharacterBody2D
 
 @export var speed = 300
 
+var base_hp
+var base_speed
+var base_attackSpeed
+var base_
+
 var target
 
 func _get_closest_target():
 	var nodes = get_tree().get_nodes_in_group("enemy")
-	if len(nodes) == 0: return null
-	
 	var closest = null
 	var distance = null
-	
+
 	for i in nodes:
+		var d = position.distance_squared_to(i.position)
 		if (closest == null): 
-			distance = position.distance_squared_to(i.position)
+			distance = d
 			closest = i
 			continue
-		if (position.distance_squared_to(i.position) < distance):
-			distance = position.distance_squared_to(i.position)
+		if (d < distance):
+			distance = d
 			closest = i
 			
 	return closest
