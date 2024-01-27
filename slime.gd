@@ -23,3 +23,6 @@ func damage(d):
 
 func _on_knockback_timer_timeout():
 	knockback = Vector2.ZERO
+
+func _on_hit_box_body_entered(body):
+	target.damage(1)

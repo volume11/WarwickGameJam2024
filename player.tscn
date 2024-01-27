@@ -8,6 +8,7 @@
 radius = 13.0384
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_6wm1k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -26,4 +27,9 @@ one_shot = true
 visible = false
 monitoring = false
 
+[node name="InvulnTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="InvulnTimer" to="." method="_on_invuln_timer_timeout"]
