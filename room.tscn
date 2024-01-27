@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b37gdirx8ue2x"]
+
+[sub_resource type="TileSet" id="TileSet_xoun3"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+
+[node name="Room" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_xoun3")
+format = 2
