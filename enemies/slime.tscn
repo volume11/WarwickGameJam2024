@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://0j0v85bo1nu2"]
 
-[ext_resource type="Script" path="res://slime.gd" id="1_j1b6s"]
+[ext_resource type="Script" path="res://enemies/slime.gd" id="1_j1b6s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i04ti"]
 radius = 7.07107

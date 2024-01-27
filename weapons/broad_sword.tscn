@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://by4xnvcsbu3gv"]
 
-[ext_resource type="Script" path="res://broad_sword.gd" id="1_7yn87"]
+[ext_resource type="Script" path="res://weapons/broad_sword.gd" id="1_7yn87"]
 [ext_resource type="Texture2D" uid="uid://bip4ai08x4s1i" path="res://assets/sprites/temp/sword.png" id="1_e0804"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7dnf"]
