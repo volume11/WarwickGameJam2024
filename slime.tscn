@@ -1,23 +1,39 @@
 [gd_scene load_steps=12 format=3 uid="uid://0j0v85bo1nu2"]
 
 [ext_resource type="Script" path="res://slime.gd" id="1_j1b6s"]
-[ext_resource type="Texture2D" uid="uid://bntokssye4rf5" path="res://assets/sprites/slime/sprite_0.png" id="2_btpnl"]
-[ext_resource type="Texture2D" uid="uid://bwnalw6cevwwo" path="res://assets/sprites/slime/sprite_1.png" id="3_je43s"]
-[ext_resource type="Texture2D" uid="uid://cnmdrwgmiqbf2" path="res://assets/sprites/slime/sprite_2.png" id="4_4hgil"]
-[ext_resource type="Texture2D" uid="uid://c4ej36ogp6mao" path="res://assets/sprites/slime/sprite_3.png" id="5_3s2l2"]
-[ext_resource type="Texture2D" uid="uid://tg0mjot6000s" path="res://assets/sprites/slime/sprite_4.png" id="6_jptiw"]
-[ext_resource type="Texture2D" uid="uid://cb1v82hf0f68w" path="res://assets/sprites/slime/sprite_5.png" id="7_xkrf8"]
-[ext_resource type="Texture2D" uid="uid://bm5ndq4dexw6l" path="res://assets/sprites/slime/sprite_6.png" id="8_qe25f"]
-[ext_resource type="Texture2D" uid="uid://86lsaxt13tmh" path="res://assets/sprites/slime/sprite_7.png" id="9_ifiba"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i04ti"]
 radius = 7.07107
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jfe7n"]
+load_path = "res://.godot/imported/sprite_0.png-6a0a11c0a5d70aa12db303a59c8c16c6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i20nc"]
+load_path = "res://.godot/imported/sprite_1.png-5c51b3dfb0aa4e3d9447df6f5a72190a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_koudc"]
+load_path = "res://.godot/imported/sprite_2.png-4b00bc046721fb71c0f56c8b646cceca.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sodli"]
+load_path = "res://.godot/imported/sprite_3.png-b56394ca23d3b3940e6b7f63c8c74ec5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3vk32"]
+load_path = "res://.godot/imported/sprite_4.png-4fc43e78bb594d7402ffa7ed1e3d97e4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b3edu"]
+load_path = "res://.godot/imported/sprite_5.png-cfc948c1f8f67054fa0ae3b109b306ae.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c2q7q"]
+load_path = "res://.godot/imported/sprite_6.png-9b68750d686938a8078a1e2e6b3fddfe.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k4qq1"]
+load_path = "res://.godot/imported/sprite_7.png-3114900ae6a40a5f142f02fbc8eaa432.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xjp2l"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_btpnl")
+"texture": SubResource("CompressedTexture2D_jfe7n")
 }],
 "loop": true,
 "name": &"idle",
@@ -25,28 +41,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_btpnl")
+"texture": SubResource("CompressedTexture2D_jfe7n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_je43s")
+"texture": SubResource("CompressedTexture2D_i20nc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_4hgil")
+"texture": SubResource("CompressedTexture2D_koudc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_3s2l2")
+"texture": SubResource("CompressedTexture2D_sodli")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_jptiw")
+"texture": SubResource("CompressedTexture2D_3vk32")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_xkrf8")
+"texture": SubResource("CompressedTexture2D_b3edu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_qe25f")
+"texture": SubResource("CompressedTexture2D_c2q7q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_ifiba")
+"texture": SubResource("CompressedTexture2D_k4qq1")
 }],
 "loop": true,
 "name": &"running",
@@ -65,4 +81,4 @@ shape = SubResource("CircleShape2D_i04ti")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_xjp2l")
-animation = &"idle"
+animation = &"running"
