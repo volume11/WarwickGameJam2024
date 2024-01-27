@@ -20,7 +20,9 @@ texture = ExtResource("1_v10f0")
 wait_time = 0.5
 one_shot = true
 
-[node name="BroadSword" parent="." instance=ExtResource("3_r8aju")]
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="BroadSword" parent="Weapons" instance=ExtResource("3_r8aju")]
 visible = false
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://brx4hdtjnarh8"]
+[gd_scene load_steps=4 format=3 uid="uid://brx4hdtjnarh8"]
 
 [ext_resource type="PackedScene" uid="uid://cyg45ga4md8v5" path="res://player.tscn" id="1_rn4ml"]
 [ext_resource type="PackedScene" uid="uid://0j0v85bo1nu2" path="res://slime.tscn" id="2_ml3ct"]
+[ext_resource type="PackedScene" uid="uid://bnx2ue2wtva7g" path="res://hud/hud.tscn" id="3_bkkcf"]
 
 [node name="World" type="Node2D"]
 
@@ -21,3 +22,7 @@ position = Vector2(323, 265)
 
 [node name="Slime4" parent="." instance=ExtResource("2_ml3ct")]
 position = Vector2(315, 307)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("3_bkkcf")]
