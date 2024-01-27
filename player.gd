@@ -5,7 +5,7 @@ signal health_changed(health: int)
 var target
 
 var base_hp = 10
-var base_attack_speed = 0.5
+var base_attack_speed = 1
 var base_strength = 1
 var base_speed = 300
 
@@ -21,7 +21,7 @@ var invuln = false
 
 func _ready():
 	#temporary
-	currentWeapon = $Weapons/BroadSword
+	currentWeapon = $Weapons/Bow
 	
 	health = base_hp
 	max_health = health

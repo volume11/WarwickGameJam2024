@@ -6,10 +6,10 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 
 func equip():
-	pass
+	player.attack_speed *= 0.5
 	
 func destroy():
-	pass
+	player.attack_speed /= 0.5
 
 func attack(target):
 	player.damage(1)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://do1wpmhf7fpdk"]
+
+[ext_resource type="Script" path="res://weapons/bow.gd" id="1_jhge1"]
+[ext_resource type="PackedScene" uid="uid://dtsqwg4uyj7is" path="res://weapons/arrow.tscn" id="2_n4pie"]
+
+[node name="Bow" type="Node2D"]
+script = ExtResource("1_jhge1")
+arrowScene = ExtResource("2_n4pie")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
