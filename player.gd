@@ -15,10 +15,10 @@ func _process(delta):
 		print("attack")
 		$AttackTimer.start()
 		
-		$BroadSword.rotation = 0
+		$BroadSword.rotation = position.angle_to_point(target.position) - PI / 2
 		$BroadSword.visible = true
 		var tween = create_tween()
-		tween.tween_property($BroadSword, "rotation", PI, 0.3)
+		tween.tween_property($BroadSword, "rotation", $BroadSword.rotation + PI, 0.3)
 		tween.chain().tween_property($BroadSword, "visible", false, 0)
 		
 
