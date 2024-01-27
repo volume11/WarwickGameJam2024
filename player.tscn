@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyg45ga4md8v5"]
+[gd_scene load_steps=5 format=3 uid="uid://cyg45ga4md8v5"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_6wm1k"]
 [ext_resource type="Texture2D" uid="uid://dd73jge8cuvy4" path="res://assets/sprites/temp/Player.png" id="1_v10f0"]
+[ext_resource type="PackedScene" uid="uid://by4xnvcsbu3gv" path="res://broad_sword.tscn" id="3_r8aju"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_36agk"]
 radius = 13.0384
@@ -18,5 +19,8 @@ texture = ExtResource("1_v10f0")
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="BroadSword" parent="." instance=ExtResource("3_r8aju")]
+visible = false
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
