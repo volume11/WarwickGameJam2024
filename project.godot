@@ -16,8 +16,8 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 
 [autoload]
 
-Events="*res://Events.gd"
-ObjectAdder="*res://ObjectAdder.gd"
+Events="*res://Autoload/Events.gd"
+ObjectAdder="*res://Autoload/ObjectAdder.gd"
 
 [editor]
 
