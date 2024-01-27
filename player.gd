@@ -27,7 +27,7 @@ func _get_closest_target():
 	return closest
 
 func _process(delta):
-	if (Input.is_action_just_pressed("target")):
+	if (target == null || Input.is_action_just_pressed("target")):
 		target = _get_closest_target()
 		
 	if (target != null && Input.is_action_pressed("attack") && $AttackTimer.is_stopped()):
