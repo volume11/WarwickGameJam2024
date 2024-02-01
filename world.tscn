@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://brx4hdtjnarh8"]
 
-[ext_resource type="PackedScene" path="res://player.tscn" id="1_rn4ml"]
+[ext_resource type="PackedScene" uid="uid://cyg45ga4md8v5" path="res://player.tscn" id="1_rn4ml"]
 [ext_resource type="PackedScene" uid="uid://0j0v85bo1nu2" path="res://enemies/slime.tscn" id="2_ml3ct"]
 [ext_resource type="PackedScene" uid="uid://bnx2ue2wtva7g" path="res://hud/hud.tscn" id="3_bkkcf"]
 

@@ -16,12 +16,12 @@ var strength
 var speed
 
 var currentWeapon
+var weapon_durability
 
 var invuln = false
 
 func _ready():
-	#temporary
-	currentWeapon = $Weapons/Bow
+	select_weapon($Weapons/BroadSword)
 	
 	health = base_hp
 	max_health = health
@@ -33,6 +33,12 @@ func _ready():
 	Events.emit_signal("player_max_health_changed", max_health)
 	
 
+func select_weapon(weapon):
+	currentWeapon = weapon
+	weapon_durability = 10
+	Events.emit_signal("player_max_durability_changed", 10)
+	Events.emit_signal("player_durability_changed", 10)
+
 func _process(delta):
 	var nodes = get_tree().get_nodes_in_group("enemy")
 	if (len(nodes) > 0):
@@ -40,9 +46,15 @@ func _process(delta):
 	else:
 		target = null
 		
-	if (target != null && Input.is_action_pressed("attack") && $AttackTimer.is_stopped()):
+	if (target != null && currentWeapon != null && Input.is_action_pressed("attack") && $AttackTimer.is_stopped()):
 		$AttackTimer.start(base_attack_speed)
 		currentWeapon.attack(target)
+		weapon_durability -= 1
+		Events.emit_signal("player_durability_changed", weapon_durability)
+		if (weapon_durability <= 0):
+			currentWeapon.queue_free()
+			currentWeapon = null
+			
 
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down").normalized()
