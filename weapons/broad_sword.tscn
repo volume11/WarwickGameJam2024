@@ -8,8 +8,10 @@ radius = 16.9915
 height = 122.129
 
 [node name="BroadSword" type="Area2D"]
+visible = false
 collision_layer = 0
 collision_mask = 4
+monitoring = false
 script = ExtResource("1_7yn87")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

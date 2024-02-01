@@ -1,18 +1,12 @@
-extends Area2D
+class_name BroadSword extends Area2D
 
 var player
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 
-func equip():
-	player.attack_speed *= 0.5
-	
-func destroy():
-	player.attack_speed /= 0.5
-
 func attack(target):
-	player.damage(1)
+	player.damage(player.strength)
 	rotation = player.position.angle_to_point(target.position) - PI / 2
 	visible = true
 	monitoring = true
@@ -23,5 +17,5 @@ func attack(target):
 	tween.chain().tween_property(self, "monitoring", false, 0)
 	
 func _on_body_entered(body):
-	body.damage(1)
-	player.heal(1)
+	body.damage(player.strength)
+	player.heal(player.strength)

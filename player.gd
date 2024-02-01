@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal health_changed(health: int)
+signal weapon_equipped(weapon)
 
 var target
 
@@ -18,6 +19,8 @@ var speed
 var currentWeapon
 var weapon_durability
 
+var weapons = [load("res://weapons/broadSword.tres")]
+
 var invuln = false
 
 func _ready():
@@ -27,18 +30,23 @@ func _ready():
 	speed = base_speed
 	attack_speed = base_attack_speed
 	
-	select_weapon($Weapons/BroadSword)
+	select_weapon(weapons[0])
+	weapons.remove_at(0)
 	
 	Events.emit_signal("player_health_changed", health)
 	Events.emit_signal("player_max_health_changed", max_health)
 	
 
 func select_weapon(weapon):
-	currentWeapon = weapon
-	weapon_durability = 10
-	currentWeapon.equip()
-	Events.emit_signal("player_max_durability_changed", 10)
-	Events.emit_signal("player_durability_changed", 10)
+	var inst
+	if (weapon.weapon_name == "Broad Sword"):
+		inst = preload("res://weapons/broad_sword.tscn").instantiate()
+	
+	$Weapons.add_child(inst)
+	currentWeapon = inst
+	weapon_durability = weapon.durability
+	Events.emit_signal("player_max_durability_changed", weapon_durability)
+	Events.emit_signal("player_durability_changed", weapon_durability)
 
 func _process(delta):
 	var nodes = get_tree().get_nodes_in_group("enemy")
@@ -53,7 +61,6 @@ func _process(delta):
 		weapon_durability -= 1
 		Events.emit_signal("player_durability_changed", weapon_durability)
 		if (weapon_durability <= 0):
-			currentWeapon.destroy()
 			currentWeapon.queue_free()
 			currentWeapon = null
 			
