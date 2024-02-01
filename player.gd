@@ -21,13 +21,13 @@ var weapon_durability
 var invuln = false
 
 func _ready():
-	select_weapon($Weapons/BroadSword)
-	
 	health = base_hp
 	max_health = health
 	strength = base_strength
 	speed = base_speed
 	attack_speed = base_attack_speed
+	
+	select_weapon($Weapons/BroadSword)
 	
 	Events.emit_signal("player_health_changed", health)
 	Events.emit_signal("player_max_health_changed", max_health)
@@ -36,6 +36,7 @@ func _ready():
 func select_weapon(weapon):
 	currentWeapon = weapon
 	weapon_durability = 10
+	currentWeapon.equip()
 	Events.emit_signal("player_max_durability_changed", 10)
 	Events.emit_signal("player_durability_changed", 10)
 
@@ -52,6 +53,7 @@ func _process(delta):
 		weapon_durability -= 1
 		Events.emit_signal("player_durability_changed", weapon_durability)
 		if (weapon_durability <= 0):
+			currentWeapon.destroy()
 			currentWeapon.queue_free()
 			currentWeapon = null
 			
