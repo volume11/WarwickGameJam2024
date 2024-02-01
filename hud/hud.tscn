@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnx2ue2wtva7g"]
+[gd_scene load_steps=4 format=3 uid="uid://bnx2ue2wtva7g"]
 
 [ext_resource type="Script" path="res://hud/PlayerHPBar.gd" id="1_p631i"]
+[ext_resource type="Texture2D" uid="uid://bip4ai08x4s1i" path="res://assets/sprites/temp/sword.png" id="2_gpry6"]
+[ext_resource type="Script" path="res://hud/Button.gd" id="3_33pkv"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -17,3 +19,30 @@ offset_top = 26.0
 offset_right = 242.0
 offset_bottom = 58.0
 script = ExtResource("1_p631i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 544.0
+offset_right = 932.0
+offset_bottom = 623.0
+
+[node name="One" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+icon = ExtResource("2_gpry6")
+alignment = 2
+icon_alignment = 1
+script = ExtResource("3_33pkv")
+action = "selectItemOne"
+
+[node name="KeyLabel" type="Label" parent="HBoxContainer/One"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2
