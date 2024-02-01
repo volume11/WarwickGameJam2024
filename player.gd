@@ -28,6 +28,10 @@ func _ready():
 	strength = base_strength
 	speed = base_speed
 	attack_speed = base_attack_speed
+	
+	Events.emit_signal("player_health_changed", health)
+	Events.emit_signal("player_max_health_changed", max_health)
+	
 
 func _process(delta):
 	var nodes = get_tree().get_nodes_in_group("enemy")
