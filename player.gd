@@ -3,8 +3,6 @@ extends CharacterBody2D
 signal health_changed(health: int)
 signal weapon_equipped(weapon)
 
-var target
-
 var base_hp = 10
 var base_attack_speed = 1
 var base_strength = 1
@@ -46,13 +44,36 @@ func select_weapon(index: int):
 	Events.emit_signal("player_max_durability_changed", weapon_durability)
 	Events.emit_signal("player_durability_changed", weapon_durability)
 
-func _process(delta):
+func _get_closest_target():
 	var nodes = get_tree().get_nodes_in_group("enemy")
-	if (len(nodes) > 0):
-		target = nodes[0]
-	else:
-		target = null
+	var closest = null
+	var distance = null
+
+	for i in nodes:
+		var d = position.distance_squared_to(i.position)
+		if (closest == null): 
+			distance = d
+			closest = i
+			continue
+		if (d < distance):
+			distance = d
+			closest = i
+			
+	return closest
+
+func _process(delta):
+	if (target == null || Input.is_action_just_pressed("target")):
+		target = _get_closest_target()
+
+	if (target != null && Input.is_action_pressed("attack") && $AttackTimer.is_stopped()):
+		$AttackTimer.start()
 		
+		$BroadSword.rotation = position.angle_to_point(target.position) - PI / 2
+		$BroadSword.visible = true
+		var tween = create_tween()
+		tween.tween_property($BroadSword, "rotation", $BroadSword.rotation + PI, 0.3)
+		tween.chain().tween_property($BroadSword, "visible", false, 0)
+
 	if (target != null && currentWeapon != null && Input.is_action_pressed("attack") && $AttackTimer.is_stopped()):
 		$AttackTimer.start(base_attack_speed)
 		currentWeapon.attack(target)
@@ -61,7 +82,6 @@ func _process(delta):
 		if (weapon_durability <= 0):
 			currentWeapon.queue_free()
 			currentWeapon = null
-			
 
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down").normalized()
