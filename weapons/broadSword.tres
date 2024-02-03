@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_ntdco")
+id = "broad_sword"
 weapon_name = "Broad Sword"
 damage = 1
 attack_speed = 0.5
+durability = 10
