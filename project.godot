@@ -14,6 +14,11 @@ config/name="WarwickGameJam2024"
 run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
+[autoload]
+
+Events="*res://Autoload/Events.gd"
+ObjectAdder="*res://Autoload/ObjectAdder.gd"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
