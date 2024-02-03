@@ -19,7 +19,7 @@ var speed
 var currentWeapon
 var weapon_durability
 
-var weapons = [load("res://weapons/broadSword.tres")]
+var weapons = [load("res://weapons/broadSword.tres"), load("res://weapons/bow.tres")]
 
 var invuln = false
 
@@ -30,17 +30,15 @@ func _ready():
 	speed = base_speed
 	attack_speed = base_attack_speed
 	
-	select_weapon(weapons[0])
-	weapons.remove_at(0)
+	select_weapon(1)
 	
 	Events.emit_signal("player_health_changed", health)
 	Events.emit_signal("player_max_health_changed", max_health)
 	
-
-func select_weapon(weapon):
-	var inst
-	if (weapon.weapon_name == "Broad Sword"):
-		inst = preload("res://weapons/broad_sword.tscn").instantiate()
+func select_weapon(index: int):
+	var weapon = weapons[index]
+	weapons.remove_at(index)
+	var inst = load("res://weapons/" + weapon.id + ".tscn").instantiate()	
 	
 	$Weapons.add_child(inst)
 	currentWeapon = inst
